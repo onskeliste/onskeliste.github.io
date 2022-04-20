@@ -21,21 +21,21 @@ jobs:
         with:
           branch: gh-pages # The branch the action should deploy to.
           folder: build # The folder the action should deploy.
-#  migrate-database:
-#    name: Run Flyway migrations
-#    runs-on: ubuntu-20.04
-#    env:
-#      SUPABASE_HOST: db.ywitcuwzzjqqfozesual.supabase.co
-#      SUPABASE_PORT: 5432
-#      SUPABASE_USER: postgres
-#      SUPABASE_DB: postgres
-#    steps:
-#      - uses: actions/checkout@v2
-#      - run: >-
-#          docker run --rm
-#          --volume ${{ github.workspace }}/migrations:/flyway/sql:ro
-#          flyway/flyway:8.5.7-alpine
-#          -url="jdbc:postgresql://${{ env.SUPABASE_HOST }}:${{ env.SUPABASE_PORT }}/${{ env.SUPABASE_DB }}?sslmode=require"
-#          -user="${{ env.SUPABASE_USER }}"
-#          -password="${{ secrets.SUPABASE_PASS }}"
-#          migrate
+  migrate-database:
+    name: Run Flyway migrations
+    runs-on: ubuntu-20.04
+    env:
+      SUPABASE_HOST: db.npzoxyrazczvoevtwvbd.supabase.co
+      SUPABASE_PORT: 5432
+      SUPABASE_USER: postgres
+      SUPABASE_DB: postgres
+    steps:
+      - uses: actions/checkout@v2
+      - run: >-
+          docker run --rm
+          --volume ${{ github.workspace }}/migrations:/flyway/sql:ro
+          flyway/flyway:8.5.7-alpine
+          -url="jdbc:postgresql://${{ env.SUPABASE_HOST }}:${{ env.SUPABASE_PORT }}/${{ env.SUPABASE_DB }}?sslmode=require"
+          -user="${{ env.SUPABASE_USER }}"
+          -password="${{ secrets.SUPABASE_PASS }}"
+          migrate
