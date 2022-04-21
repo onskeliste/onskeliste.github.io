@@ -17,10 +17,10 @@ export default function Wishes({ user }: any) {
 
     useEffect(() => {
         fetchWishes()
-    }, [])
+    })
 
     const fetchWishes = async () => {
-        let { data: wish, error } = await supabase.from('onske').select('*').order('id')
+        let { data: error } = await supabase.from('onske').select('*').order('id')
         if (error) console.log('error', error)
         else setWishes(wishes)
     }

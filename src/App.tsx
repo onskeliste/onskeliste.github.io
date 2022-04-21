@@ -1,10 +1,7 @@
 import React from 'react';
 import './App.css';
 
-import { createClient } from '@supabase/supabase-js'
 import Home from "./components/Home";
-
-
 
 function App() {
 
